@@ -1,0 +1,27 @@
+<main>
+  <header>
+      <h1>Atendimento Online</h1>
+  </header>
+  <section id="chat">
+      <div class="message" *ngFor="let msg of messages" [ngClass]="{'my-msg':msg.user === 'Usuário'}">
+          <h4>{{ msg.user }} diz:</h4>
+          <p>{{ msg.content }}</p>
+      </div>
+  </section>
+  <footer>
+      <input 
+        id="new-text"
+        type="text"
+        autofocus
+        placeholder="Digite sua mensagem..."
+        [(ngModel)]="messageToSend"
+      >
+      <button 
+        id="send-message"
+        type="button"
+        (click)="sendMessage()"
+      >
+        ENVIAR
+      </button>
+  </footer>
+</main>
